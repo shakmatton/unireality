@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo - Seleção de Jogadores</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@500&family=Fira+Sans+Extra+Condensed:ital,wght@1,500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fira Sans Extra Condensed', sans-serif;
+            background-image: url('images/wallpaper.jpg'); /* Insere o papel de parede */
+            background-size: cover; /* Ajusta o tamanho da imagem de fundo para cobrir toda a tela */
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-weight: 500; /* Aplica a versão de 500 pontos */
+            font-style: italic; /* Aplica itálico */
+        }
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 4em; /* Aumenta o tamanho do título */
+            color: #006699; /* Usei a cor do seu projeto anterior */
+            margin: 0;
+        }
+        h2 {
+            font-size: 2em; /* Aumenta o tamanho do subtítulo */
+            color: #555;
+            margin-top: 10px; /* Subir um pouco na tela */
+            margin-bottom: 50px; /* Aumenta o espaço entre o subtítulo e os espaços para imagens */
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px; /* Aumenta o espaço entre os botões */
+            align-items: center; /* Centraliza os botões */
+            justify-content: center; /* Alinha os botões ao centro */
+            width: 100%; /* Garante que a largura seja 100% */
+        }
+        .button-wrapper {
+            display: flex;
+            align-items: center; /* Centraliza as imagens e botões dos jogadores */
+            text-align: center; /* Centraliza o conteúdo */
+            gap: 20px; /* Espaço entre a imagem e o botão */
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 40px; /* Ajusta o espaço dos botões */
+            border: none;
+            border-radius: 5px;
+            font-size: 2em; /* Ajusta o tamanho do texto dos botões */
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            width: 100%;
+            max-width: 300px; /* Ajusta a largura dos botões */
+            margin: 0 auto;
+            font-family: 'Fira Sans Extra Condensed', sans-serif; /* Aplica a fonte aos botões */
+            font-weight: 500; /* Aplica a versão de 500 pontos */
+            font-style: italic; /* Aplica itálico */
+        }
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05); /* Efeito de hover: ligeiro aumento de tamanho */
+        }
+        .player-image {
+            width: 100%;
+            max-width: 100px; /* Ajusta a largura das imagens */
+            height: 100px; /* Ajusta o tamanho das imagens dos jogadores */
+            background-color: #ccc; /* Placeholder para as imagens dos jogadores */
+            border-radius: 5px; /* Bordas ligeiramente arredondadas */
+            transition: transform 0.3s; /* Efeito de hover: ligeiro aumento de tamanho */
+        }
+        .player-image:hover {
+            transform: scale(1.05); /* Efeito de hover: ligeiro aumento de tamanho */
+        }
+        @media (min-width: 600px) {
+            .button-container {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UNIREALITY++</h1>
+        <h2>PENSAMENTO COMPUTACIONAL</h2>
+        <div class="button-container">
+            <div class="button-wrapper">
+                <div class="player-image"></div> <!-- Espaço reservado para a imagem do Jogador 1 -->
+                <button class="button" onclick="selectPlayer(1)">Jogador 1</button>
+            </div>
+            <div class="button-wrapper">
+                <div class="player-image"></div> <!-- Espaço reservado para a imagem do Jogador 2 -->
+                <button class="button" onclick="selectPlayer(2)">Jogador 2</button>
+            </div>
+        </div>        
+    </div>
+
+    <script>
+        function selectPlayer(player) {
+            if (player === 1) {
+                window.location.href = "player1/index.html"; // Redireciona para a subpasta do Jogador 1
+            } else if (player === 2) {
+                window.location.href = "player2/index.html"; // Redireciona para a subpasta do Jogador 2
+            }
+        }
+    </script>
+</body>
+</html>
