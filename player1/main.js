@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             container: document.body,
             // imageTargetSrc: "./targets.mind"
             imageTargetSrc: "./multi_detect.mind",
-            maxTrack: 4           // Melhor valor: 2-3                           
+            //maxTrack: 2           // Melhor valor: 2-3                           
         })
     
         const {scene, camera, renderer} = mindarThree
@@ -21,45 +21,54 @@ document.addEventListener("DOMContentLoaded", () => {
         scene.add(light)
         
         // const tab = await loadGLTF("./gltf/Tabuleiro.gltf")      
-        const ponte = await loadGLTF("./gltf/Bridge.gltf")
-        const pa = await loadGLTF("./gltf/Shovel.gltf")
-        const bau = await loadGLTF("./gltf/Chest.gltf")
-        const player = await loadGLTF("./gltf/Player.gltf")
+        // const ponte = await loadGLTF("./gltf/Bridge.gltf")
+        // const pa = await loadGLTF("./gltf/Shovel.gltf")
+        // const bau = await loadGLTF("./gltf/Chest.gltf")
+        // const player = await loadGLTF("./gltf/Player.gltf")
+
+        const rec = await loadGLTF("./gltf/reciclaveis.gltf")
 
         // tab.scene.scale.set(0.15, 0.15, 0.15)
         // tab.scene.rotation.x = Math.PI/2
         // tab.scene.position.set(0, 0, 0)
-        
-        pa.scene.scale.set(0.6, 0.6, 0.6)
-        // pa.scene.rotation.x = Math.PI/2
-        pa.scene.position.set(3, 2, -4)
 
-        bau.scene.scale.set(0.6, 0.6, 0.6)
-        bau.scene.rotation.x = Math.PI/2
-        bau.scene.position.set(3, 2.5, -4)
-        
-        ponte.scene.scale.set(0.6, 0.6, 0.6)
-        // ponte.scene.rotation.x = Math.PI/2
-        ponte.scene.position.set(1, 1, -4)
+        rec.scene.position.set(2, 1.5, -4)
 
-        player.scene.scale.set(0.85, 0.85, 0.85)
-        player.scene.rotation.y = Math.PI/2
-        player.scene.position.set(0, 0, -4)
+        // tab.scene.position.set(0, 0, 0)
+        
+        // pa.scene.scale.set(0.6, 0.6, 0.6)
+        // // pa.scene.rotation.x = Math.PI/2
+        // pa.scene.position.set(3, 2, -4)
+
+        // bau.scene.scale.set(0.6, 0.6, 0.6)
+        // bau.scene.rotation.x = Math.PI/2
+        // bau.scene.position.set(3, 2.5, -4)
+        
+        // ponte.scene.scale.set(0.6, 0.6, 0.6)
+        // // ponte.scene.rotation.x = Math.PI/2
+        // ponte.scene.position.set(1, 1, -4)
+
+        // player.scene.scale.set(0.85, 0.85, 0.85)
+        // player.scene.rotation.y = Math.PI/2
+        // player.scene.position.set(0, 0, -4)
+
+        const recAnchor = mindarThree.addAnchor(0)
+        recAnchor.group.add(rec.scene)
 
         // const tabAnchor = mindarThree.addAnchor(0)
         // tabAnchor.group.add(tab.scene)
 
-        const paAnchor = mindarThree.addAnchor(0)
-        paAnchor.group.add(pa.scene)
+        // const paAnchor = mindarThree.addAnchor(0)
+        // paAnchor.group.add(pa.scene)
 
-        const bauAnchor = mindarThree.addAnchor(1)
-        bauAnchor.group.add(bau.scene)
+        // const bauAnchor = mindarThree.addAnchor(1)
+        // bauAnchor.group.add(bau.scene)
 
-        const ponteAnchor = mindarThree.addAnchor(2)
-        ponteAnchor.group.add(ponte.scene)
+        // const ponteAnchor = mindarThree.addAnchor(2)
+        // ponteAnchor.group.add(ponte.scene)
 
-        const playerAnchor = mindarThree.addAnchor(3)
-        playerAnchor.group.add(player.scene)
+        // const playerAnchor = mindarThree.addAnchor(3)
+        // playerAnchor.group.add(player.scene)
 
         await mindarThree.start()
 
