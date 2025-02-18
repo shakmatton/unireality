@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function onPointerMove(e) {
       if (!draggingModel) return;
 
-      const deltaX = (e.clientX - initialPointer.x) * 0.002; // Adjust scaling
-      const deltaY = (e.clientY - initialPointer.y) * -0.002; // Invert Y for correct movement
+      const deltaX = (e.clientX - initialPointer.x) * 0.02; // Adjust scaling
+      const deltaY = (e.clientY - initialPointer.y) * -0.02; // Invert Y for correct movement
 
       draggingModel.position.set(
         initialPosition.x + deltaX,
