@@ -51,8 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let initialPosition = new THREE.Vector3();
 
     function onPointerDown(e) {
-      pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-      pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      const clientX = e.clientX || e.touches[0].clientX;
+      const clientY = e.clientY || e.touches[0].clientY;
+      pointer.x = (clientX / window.innerWidth) * 2 - 1;
+      pointer.y = -(clientY / window.innerHeight) * 2 + 1;
       raycaster.setFromCamera(pointer, camera);
       const intersects = raycaster.intersectObjects(scene.children, true);
 
@@ -64,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (obj.userData.clickable) {
           draggingModel = obj;
-          initialPointer.set(e.clientX, e.clientY);
+          initialPointer.set(clientX, clientY);
           initialPosition.copy(draggingModel.position);
         }
       }
@@ -73,8 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function onPointerMove(e) {
       if (!draggingModel) return;
 
-      const deltaX = (e.clientX - initialPointer.x) * 0.02; // Adjust scaling
-      const deltaY = (e.clientY - initialPointer.y) * -0.02; // Invert Y for correct movement
+      const clientX = e.clientX || e.touches[0].clientX;
+      const clientY = e.clientY || e.touches[0].clientY;
+      const deltaX = (clientX - initialPointer.x) * 0.002575; // Adjust scaling
+      const deltaY = (clientY - initialPointer.y) * -0.002575; // Invert Y for correct movement
 
       draggingModel.position.set(
         initialPosition.x + deltaX,
@@ -87,10 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
       draggingModel = null;
     }
 
-    // Add event listeners
+    // Add event listeners for pointer and touch events
     document.body.addEventListener("pointerdown", onPointerDown);
     document.body.addEventListener("pointermove", onPointerMove);
     document.body.addEventListener("pointerup", onPointerUp);
+
+    document.body.addEventListener("touchstart", onPointerDown);
+    document.body.addEventListener("touchmove", onPointerMove);
+    document.body.addEventListener("touchend", onPointerUp);
 
     // Start AR rendering loop
     await mindarThree.start();
