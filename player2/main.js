@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Botão Zoom Original (House)
     const btnZoomOriginal = document.createElement("img");
-    btnZoomOriginal.src = "/player2/gltf/imgs/home.png"; // imagem da casa (Home)
+    btnZoomOriginal.src = "./gltf/imgs/home.png"; // imagem da casa (Home)
     btnZoomOriginal.alt = "Zoom Original";
     btnZoomOriginal.style.cursor = "pointer";
     btnZoomOriginal.style.width = "40px";
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Botão Zoom +
     const btnZoomPlus = document.createElement("img");
-    btnZoomPlus.src = "/player2/gltf/imgs/plus.jpg"; // Zoom+
+    btnZoomPlus.src = "./gltf/imgs/plus.jpg"; // Zoom+
     btnZoomPlus.alt = "Zoom+";
     btnZoomPlus.style.cursor = "pointer";
     btnZoomPlus.style.width = "40px";
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Botão Zoom -
     const btnZoomMinus = document.createElement("img");
-    btnZoomMinus.src = "/player2/gltf/imgs/minus.jpg"; // Zoom-
+    btnZoomMinus.src = "./gltf/imgs/minus.jpg"; // Zoom-
     btnZoomMinus.alt = "Zoom-";
     btnZoomMinus.style.cursor = "pointer";
     btnZoomMinus.style.width = "40px";
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Botão ON/OFF (imagens com palavras)
     let objetosVisiveis = true;
     const btnOnOff = document.createElement("img");
-    btnOnOff.src = "/player2/gltf/imgs/off.jpg"; // imagem com a palavra "OFF"
+    btnOnOff.src = "./gltf/imgs/off.jpg"; // imagem com a palavra "OFF"
     btnOnOff.alt = "ON/OFF";
     btnOnOff.style.cursor = "pointer";
     btnOnOff.style.height = "40px";
@@ -220,13 +220,13 @@ document.addEventListener("DOMContentLoaded", () => {
       models.forEach(model => {
         model.scene.visible = objetosVisiveis;
       });
-      btnOnOff.src = objetosVisiveis ? "/player2/gltf/imgs/off.jpg" : "/player2/gltf/imgs/on.jpg";
+      btnOnOff.src = objetosVisiveis ? "./gltf/imgs/off.jpg" : "./gltf/imgs/on.jpg";
     });
     uiContainer.appendChild(btnOnOff);
 
     // Botão Reset (imagens com palavras)
     const btnReset = document.createElement("img");
-    btnReset.src = "/player2/gltf/imgs/reset.jpg"; // imagem com a palavra "Reset"
+    btnReset.src = "./gltf/imgs/reset.jpg"; // imagem com a palavra "Reset"
     btnReset.alt = "Reset";
     btnReset.style.cursor = "pointer";
     btnReset.style.height = "40px";
