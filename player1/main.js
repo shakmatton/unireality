@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
             //imageTargetSrc: "./multi_detect.mind",
             //imageTargetSrc: "./lata_papel_2.mind"
             //imageTargetSrc: "./yellow_bin.mind"
-            imageTargetSrc: "./yellow_red_green_blue_bins.mind"
-            // imageTargetSrc: "./yellow-red-green-blue&lata-garrafa-vidro-papel"            
+            // imageTargetSrc: "./yellow_red_green_blue_bins.mind"
+            imageTargetSrc: "./yellow-red-green-blue&lata-garrafa-vidro-papel.mind"            
 
             //maxTrack: 2           // Melhor valor: 2-3                           
         })
@@ -29,16 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
         scene.add(light)
 
         // <=======================   GLTF LOADING   =========================>
-                
-        //const lata = await loadGLTF("./gltf/lata.gltf")
-        // const lata = await loadGLTF("./gltf/lata2.gltf")
-        //const papel = await loadGLTF("./gltf/papel.gltf")
-        // const papel = await loadGLTF("./gltf/papel2.gltf")        
-
+        
         const yellow = await loadGLTF("./gltf/yellow.gltf")
         const red = await loadGLTF("./gltf/red.gltf")
         const green = await loadGLTF("./gltf/green.gltf")
         const blue = await loadGLTF("./gltf/blue.gltf")
+
+        const lata = await loadGLTF("./gltf/3d_lata_3.gltf")
+        const garrafa = await loadGLTF("./gltf/3d_garrafa.gltf")
+        const vidro = await loadGLTF("./gltf/3d_vidro.gltf")
+        const papel = await loadGLTF("./gltf/3d_papel_2_special.gltf")        
 
         // <====================   POSITION AND SCALE   ======================>
 
@@ -54,11 +54,17 @@ document.addEventListener("DOMContentLoaded", () => {
         blue.scene.scale.set(0.85, 0.85, 0.85)
         blue.scene.position.set(0, 0, 0)
 
-        // lata.scene.scale.set(0.5, 0.5, 0.5)        
-        // lata.scene.position.set(0, 0, 0)
+        lata.scene.scale.set(0.5, 0.5, 0.5)        
+        lata.scene.position.set(0, 0, 0)
 
-        // papel.scene.scale.set(0.5, 0.5, 0.5)        
-        // papel.scene.position.set(0, 0, 0)
+        garrafa.scene.scale.set(0.5, 0.5, 0.5)        
+        garrafa.scene.position.set(0, 0, 0)
+
+        vidro.scene.scale.set(0.5, 0.5, 0.5)        
+        vidro.scene.position.set(0, 0, 0)
+
+        papel.scene.scale.set(0.5, 0.5, 0.5)        
+        papel.scene.position.set(0, 0, 0)
 
         // <=======================   ANCHORS   =========================>
 
@@ -74,13 +80,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const blueAnchor = mindarThree.addAnchor(3)
         blueAnchor.group.add(blue.scene) 
 
-        // const lataAnchor = mindarThree.addAnchor(0)
-        // lataAnchor.group.add(lata.scene)
+        const lataAnchor = mindarThree.addAnchor(4)
+        lataAnchor.group.add(lata.scene)
 
-        // const papelAnchor = mindarThree.addAnchor(1)
-        // papelAnchor.group.add(papel.scene)
+        const garrafaAnchor = mindarThree.addAnchor(5)
+        garrafaAnchor.group.add(garrafa.scene)
+
+        const vidroAnchor = mindarThree.addAnchor(6)
+        vidroAnchor.group.add(vidro.scene)
+        
+        const papelAnchor = mindarThree.addAnchor(7)
+        papelAnchor.group.add(papel.scene)
+
 
         // <=======================   ANIMATION   =========================>
+
 
         const yellowMixer = new THREE.AnimationMixer(yellow.scene);
         const yellowAction = yellowMixer.clipAction(yellow.animations[1]);
@@ -94,10 +108,28 @@ document.addEventListener("DOMContentLoaded", () => {
         const blueMixer = new THREE.AnimationMixer(blue.scene);
         const blueAction = blueMixer.clipAction(blue.animations[1]);
 
+        const lataMixer = new THREE.AnimationMixer(lata.scene);
+        const lataAction = lataMixer.clipAction(lata.animations[0]);
+        
+        const garrafaMixer = new THREE.AnimationMixer(garrafa.scene);
+        const garrafaAction = garrafaMixer.clipAction(garrafa.animations[0]);
+
+        const vidroMixer = new THREE.AnimationMixer(vidro.scene);
+        const vidroAction = vidroMixer.clipAction(vidro.animations[0]);
+
+        const papelMixer = new THREE.AnimationMixer(papel.scene);
+        const papelAction = papelMixer.clipAction(papel.animations[0]);
+
+
         yellowAction.play();
         redAction.play();
         greenAction.play();
         blueAction.play();
+
+        lataAction.play();
+        garrafaAction.play();
+        vidroAction.play();
+        papelAction.play();
 
         
         //  // Modifica o material do plano para ser visível em ambos os lados
@@ -115,10 +147,16 @@ document.addEventListener("DOMContentLoaded", () => {
         renderer.setAnimationLoop(() => {            
             
             const deltaTime = clock.getDelta();
+
             yellowMixer.update(deltaTime);
             redMixer.update(deltaTime);
             greenMixer.update(deltaTime);
             blueMixer.update(deltaTime);
+
+            lataMixer.update(deltaTime);
+            garrafaMixer.update(deltaTime);
+            vidroMixer.update(deltaTime);
+            papelMixer.update(deltaTime);
 
             renderer.render(scene, camera);
         });
