@@ -7,10 +7,10 @@ const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 // Vetor com os caminhos das imagens das lixeiras (ordem: Amarelo, Vermelho, Verde, Azul)
 const trashBinImages = [
-  "./gltf/imgs/me.jpg",
-  "./gltf/imgs/pla.jpg",
-  "./gltf/imgs/vi.jpg",
-  "./gltf/imgs/pla.jpg"
+  "./gltf/imgs/pla.jpg",      // pla = plástico, lixeira vermelha
+  "./gltf/imgs/vi.jpg",       // vi = vidro, lixeira verde
+  "./gltf/imgs/pa.jpg",        // pa = papel, lixeira azul
+  "./gltf/imgs/me.jpg",       // me = metal, lixeira amarela
 ];
 // Índice atual; inicia com -1 (nenhuma exibida)
 let currentColorIndex = -1;
@@ -211,8 +211,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btnZoomOriginal.src = "./gltf/imgs/home.png";
     btnZoomOriginal.alt = "Zoom Original";
     btnZoomOriginal.style.cursor = "pointer";
-    btnZoomOriginal.style.width = isMobile ? "30px" : "40px";
-    btnZoomOriginal.style.height = isMobile ? "30px" : "40px";
+    btnZoomOriginal.style.width = isMobile ? "28px" : "35px";
+    btnZoomOriginal.style.height = isMobile ? "28px" : "35px";
     btnZoomOriginal.addEventListener("click", (e) => {
       e.stopPropagation();
       zoomOriginal();
@@ -223,8 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btnZoomPlus.src = "./gltf/imgs/plus.jpg";
     btnZoomPlus.alt = "Zoom+";
     btnZoomPlus.style.cursor = "pointer";
-    btnZoomPlus.style.width = isMobile ? "30px" : "40px";
-    btnZoomPlus.style.height = isMobile ? "30px" : "40px";
+    btnZoomPlus.style.width = isMobile ? "28px" : "35px";
+    btnZoomPlus.style.height = isMobile ? "28px" : "35px";
     btnZoomPlus.addEventListener("click", (e) => {
       e.stopPropagation();
       zoomIn();
@@ -235,8 +235,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btnZoomMinus.src = "./gltf/imgs/minus.jpg";
     btnZoomMinus.alt = "Zoom-";
     btnZoomMinus.style.cursor = "pointer";
-    btnZoomMinus.style.width = isMobile ? "30px" : "40px";
-    btnZoomMinus.style.height = isMobile ? "30px" : "40px";
+    btnZoomMinus.style.width = isMobile ? "28px" : "35px";
+    btnZoomMinus.style.height = isMobile ? "28px" : "35px";
     btnZoomMinus.addEventListener("click", (e) => {
       e.stopPropagation();
       zoomOut();
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnOnOff.src = "./gltf/imgs/off.jpg";
     btnOnOff.alt = "ON/OFF";
     btnOnOff.style.cursor = "pointer";
-    btnOnOff.style.height = isMobile ? "30px" : "40px";
+    btnOnOff.style.height = isMobile ? "28px" : "35px";
     btnOnOff.style.width = "auto";
     btnOnOff.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnReset.src = "./gltf/imgs/reset.jpg";
     btnReset.alt = "Reset";
     btnReset.style.cursor = "pointer";
-    btnReset.style.height = isMobile ? "30px" : "40px";
+    btnReset.style.height = isMobile ? "28px" : "35px";
     btnReset.style.width = "auto";
     btnReset.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnMandala.src = "./gltf/imgs/mandala.jpg";
     btnMandala.alt = "Mandala";
     btnMandala.style.cursor = "pointer";
-    btnMandala.style.height = isMobile ? "30px" : "60px"; // igual ao Home no mobile
+    btnMandala.style.height = isMobile ? "40px" : "40px"; // igual ao Home no mobile
     btnMandala.style.width = "auto";
     btnMandala.style.position = "absolute";
     btnMandala.style.top = "10px";
@@ -325,16 +325,61 @@ document.addEventListener("DOMContentLoaded", () => {
     const trashBinImg = document.createElement("img");
     trashBinImg.alt = "Lixeira";
     trashBinImg.style.position = "absolute";
-    // Posiciona abaixo do botão Mandala; ajuste a posição conforme necessário
-    trashBinImg.style.top = isMobile ? "50px" : "80px";
+    trashBinImg.style.top = isMobile ? "60px" : "80px";
     trashBinImg.style.right = "10px";
-    trashBinImg.style.width = isMobile ? "30px" : "40px";
+    trashBinImg.style.width = isMobile ? "40px" : "40px";
     trashBinImg.style.height = "auto";
     trashBinImg.style.display = "none";
     document.body.appendChild(trashBinImg);
 
+    // ============== NOVAS IMAGENS ADICIONADAS ==============
+    const coleteImg = document.createElement("img");
+    coleteImg.src = "./gltf/imgs/colete.png";
+    coleteImg.alt = "Colete";
+    coleteImg.style.position = "absolute";
+    coleteImg.style.top = isMobile ? "290px" : "320px";
+    coleteImg.style.right = "10px";
+    coleteImg.style.width = isMobile ? "40px" : "40px";
+    coleteImg.style.height = "auto";
+    coleteImg.style.pointerEvents = "none";
+    document.body.appendChild(coleteImg);
+
+    const recicleImg = document.createElement("img");
+    recicleImg.src = "./gltf/imgs/recicle.png";
+    recicleImg.alt = "Recicle";
+    recicleImg.style.position = "absolute";
+    recicleImg.style.top = isMobile ? "360px" : "390px";
+    recicleImg.style.right = "10px";
+    recicleImg.style.width = isMobile ? "40px" : "40px";
+    recicleImg.style.height = "auto";
+    recicleImg.style.pointerEvents = "none";
+    document.body.appendChild(recicleImg);
+
+    // Adicionados após o ícone Recicle
+    const loop2Img = document.createElement("img");
+    loop2Img.src = "./gltf/imgs/loop-2.png";
+    loop2Img.alt = "Loop 2";
+    loop2Img.style.position = "absolute";
+    loop2Img.style.top = isMobile ? "460px" : "470px";
+    loop2Img.style.right = "10px";
+    loop2Img.style.width = isMobile ? "40px" : "40px";
+    loop2Img.style.height = "auto";
+    loop2Img.style.pointerEvents = "none";
+    document.body.appendChild(loop2Img);
+
+    const loop3Img = document.createElement("img");
+    loop3Img.src = "./gltf/imgs/loop-3.png";
+    loop3Img.alt = "Loop 3";
+    loop3Img.style.position = "absolute";
+    loop3Img.style.top = isMobile ? "510px" : "520px";
+    loop3Img.style.right = "10px";
+    loop3Img.style.width = isMobile ? "40px" : "40px";
+    loop3Img.style.height = "auto";
+    loop3Img.style.pointerEvents = "none";
+    document.body.appendChild(loop3Img);
+    // =======================================================
+
     function updateTrashBinImage() {
-      // Exibe a imagem da lixeira de acordo com o índice atual
       trashBinImg.src = trashBinImages[currentColorIndex];
       trashBinImg.style.display = "block";
     }
@@ -344,7 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnSair.src = "./gltf/imgs/sair.png";
     btnSair.alt = "Sair";
     btnSair.style.cursor = "pointer";
-    btnSair.style.height = isMobile ? "40px" : "60px";
+    btnSair.style.height = isMobile ? "40px" : "50px";
     btnSair.style.width = "auto";
     btnSair.style.position = "absolute";
     btnSair.style.top = "10px";
@@ -377,127 +422,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   start();
 });
-
-
-
-
-
-
-
-
-
-
-/* import { loadGLTF } from "./loader.js";
-
-const THREE = window.MINDAR.IMAGE.THREE;
-
-document.addEventListener("DOMContentLoaded", () => {
-  const start = async () => {
-    const mindarThree = new window.MINDAR.IMAGE.MindARThree({
-      container: document.body,
-      imageTargetSrc: "./targets.mind",
-    });
-
-    const { scene, camera, renderer } = mindarThree;
-
-    // Lighting
-    const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
-    scene.add(light);
-
-    // Load 3D models
-    const me = await loadGLTF("./gltf/me.gltf");
-    const pa = await loadGLTF("./gltf/pa.gltf");
-    const pla = await loadGLTF("./gltf/pla.gltf");
-    const vi = await loadGLTF("./gltf/vi.gltf");
-
-    // Scale & position models
-    const models = [me, pa, pla, vi];
-    const positions = [
-      [0, 0, 0],
-      [0.5, 0.5, 0],
-      [-0.5, -0.5, 0],
-      [0.5, -0.5, 0],
-    ];
-
-    models.forEach((model, i) => {
-      model.scene.scale.set(0.13, 0.13, 0.13);
-      model.scene.position.set(...positions[i]);
-      model.scene.userData.clickable = true;
-    });
-
-    // Add models to AR anchors
-    const anchors = models.map((model, i) => {
-      const anchor = mindarThree.addAnchor(0);
-      anchor.group.add(model.scene);
-      return anchor;
-    });
-
-    // Pointer event handling
-    const raycaster = new THREE.Raycaster();
-    const pointer = new THREE.Vector2();
-    let draggingModel = null;
-    let initialPointer = new THREE.Vector2();
-    let initialPosition = new THREE.Vector3();
-
-    function onPointerDown(e) {
-      const clientX = e.clientX || e.touches[0].clientX;
-      const clientY = e.clientY || e.touches[0].clientY;
-      pointer.x = (clientX / window.innerWidth) * 2 - 1;
-      pointer.y = -(clientY / window.innerHeight) * 2 + 1;
-      raycaster.setFromCamera(pointer, camera);
-      const intersects = raycaster.intersectObjects(scene.children, true);
-
-      if (intersects.length > 0) {
-        let obj = intersects[0].object;
-        while (obj.parent && !obj.userData.clickable) {
-          obj = obj.parent;
-        }
-
-        if (obj.userData.clickable) {
-          draggingModel = obj;
-          initialPointer.set(clientX, clientY);
-          initialPosition.copy(draggingModel.position);
-        }
-      }
-    }
-
-    function onPointerMove(e) {
-      if (!draggingModel) return;
-
-      const clientX = e.clientX || e.touches[0].clientX;
-      const clientY = e.clientY || e.touches[0].clientY;
-      const deltaX = (clientX - initialPointer.x) * 0.002575; // Adjust scaling
-      const deltaY = (clientY - initialPointer.y) * -0.002575; // Invert Y for correct movement
-
-      draggingModel.position.set(
-        initialPosition.x + deltaX,
-        initialPosition.y + deltaY,
-        initialPosition.z
-      );
-    }
-
-    function onPointerUp() {
-      draggingModel = null;
-    }
-
-    // Add event listeners for pointer and touch events
-    document.body.addEventListener("pointerdown", onPointerDown);
-    document.body.addEventListener("pointermove", onPointerMove);
-    document.body.addEventListener("pointerup", onPointerUp);
-
-    document.body.addEventListener("touchstart", onPointerDown);
-    document.body.addEventListener("touchmove", onPointerMove);
-    document.body.addEventListener("touchend", onPointerUp);
-
-    // Start AR rendering loop
-    await mindarThree.start();
-
-    renderer.setAnimationLoop(() => {
-      renderer.render(scene, camera);
-    });
-  };
-
-  start();
-});
-
-*/
