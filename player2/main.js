@@ -211,8 +211,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btnZoomOriginal.src = "./gltf/imgs/home.png";
     btnZoomOriginal.alt = "Zoom Original";
     btnZoomOriginal.style.cursor = "pointer";
-    btnZoomOriginal.style.width = isMobile ? "28px" : "35px";
-    btnZoomOriginal.style.height = isMobile ? "28px" : "35px";
+    btnZoomOriginal.style.width = isMobile ? "32px" : "35px";
+    btnZoomOriginal.style.height = isMobile ? "32px" : "35px";
     btnZoomOriginal.addEventListener("click", (e) => {
       e.stopPropagation();
       zoomOriginal();
@@ -223,8 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btnZoomPlus.src = "./gltf/imgs/plus.jpg";
     btnZoomPlus.alt = "Zoom+";
     btnZoomPlus.style.cursor = "pointer";
-    btnZoomPlus.style.width = isMobile ? "28px" : "35px";
-    btnZoomPlus.style.height = isMobile ? "28px" : "35px";
+    btnZoomPlus.style.width = isMobile ? "32px" : "35px";
+    btnZoomPlus.style.height = isMobile ? "32px" : "35px";
     btnZoomPlus.addEventListener("click", (e) => {
       e.stopPropagation();
       zoomIn();
@@ -235,8 +235,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btnZoomMinus.src = "./gltf/imgs/minus.jpg";
     btnZoomMinus.alt = "Zoom-";
     btnZoomMinus.style.cursor = "pointer";
-    btnZoomMinus.style.width = isMobile ? "28px" : "35px";
-    btnZoomMinus.style.height = isMobile ? "28px" : "35px";
+    btnZoomMinus.style.width = isMobile ? "32px" : "35px";
+    btnZoomMinus.style.height = isMobile ? "32px" : "35px";
     btnZoomMinus.addEventListener("click", (e) => {
       e.stopPropagation();
       zoomOut();
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnOnOff.src = "./gltf/imgs/off.jpg";
     btnOnOff.alt = "ON/OFF";
     btnOnOff.style.cursor = "pointer";
-    btnOnOff.style.height = isMobile ? "28px" : "35px";
+    btnOnOff.style.height = isMobile ? "32px" : "35px";
     btnOnOff.style.width = "auto";
     btnOnOff.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnReset.src = "./gltf/imgs/reset.jpg";
     btnReset.alt = "Reset";
     btnReset.style.cursor = "pointer";
-    btnReset.style.height = isMobile ? "28px" : "35px";
+    btnReset.style.height = isMobile ? "32px" : "35px";
     btnReset.style.width = "auto";
     btnReset.addEventListener("click", (e) => {
       e.stopPropagation();
