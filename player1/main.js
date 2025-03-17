@@ -1,9 +1,10 @@
-// https://hiukim.github.io/mind-ar-js-doc/quick-start/tracking-config/
-
 
 import {loadGLTF} from "./loader.js" 
 
 const THREE = window.MINDAR.IMAGE.THREE
+
+// Detecta se é dispositivo móvel
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //imageTargetSrc: "./multi_detect.mind",
             //imageTargetSrc: "./lata_papel_2.mind"
             //imageTargetSrc: "./yellow_bin.mind"
-            // imageTargetSrc: "./yellow_red_green_blue_bins.mind"
+            //imageTargetSrc: "./yellow_red_green_blue_bins.mind"
             imageTargetSrc: "./yellow-red-green-blue&lata-garrafa-vidro-papel.mind"            
 
             //maxTrack: 2           // Melhor valor: 2-3                           
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const green = await loadGLTF("./gltf/green.gltf")
         const blue = await loadGLTF("./gltf/blue.gltf")
 
-        const lata = await loadGLTF("./gltf/3d_lata_3.gltf")
+        const lata = await loadGLTF("./gltf/3d_lata_3.gltf")       
         const garrafa = await loadGLTF("./gltf/3d_garrafa.gltf")
         const vidro = await loadGLTF("./gltf/3d_vidro.gltf")
         const papel = await loadGLTF("./gltf/3d_papel_2_special.gltf")        
@@ -132,12 +133,21 @@ document.addEventListener("DOMContentLoaded", () => {
         papelAction.play();
 
         
-        //  // Modifica o material do plano para ser visível em ambos os lados
-        // scene.traverse((child) => {
-        //     if (child.isMesh) {
-        //         child.material.side = THREE.DoubleSide
-        //     }
-        // })
+        // Botão Sair - posicionado no canto superior esquerdo
+        const btnSair = document.createElement("img");
+        btnSair.src = "./gltf/imgs/sair.png";
+        btnSair.alt = "Sair";
+        btnSair.style.cursor = "pointer";
+        btnSair.style.height = isMobile ? "40px" : "60px";
+        btnSair.style.width = "auto";
+        btnSair.style.position = "absolute";
+        btnSair.style.top = "10px";
+        btnSair.style.left = "10px";
+        btnSair.addEventListener("click", (e) => {
+        e.stopPropagation();
+        window.location.href = "https://shakmatton.github.io/unireality";
+        });
+        document.body.appendChild(btnSair);
 
 
         await mindarThree.start()
