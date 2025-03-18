@@ -5,19 +5,19 @@ const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 // Caminhos das imagens das lixeiras (ordem: Vermelha, Verde, Azul, Amarela)
 const trashBinImages = [
-  "gltf/imgs/pla.jpg",    // Vermelha
-  "gltf/imgs/vi.jpg",     // Verde
-  "gltf/imgs/pa.jpg",     // Azul
-  "gltf/imgs/me.jpg"      // Amarela
+  "player2/gltf/imgs/pla.jpg",    // Vermelha
+  "player2/gltf/imgs/vi.jpg",     // Verde
+  "player2/gltf/imgs/pa.jpg",     // Azul
+  "player2/gltf/imgs/me.jpg"      // Amarela
 ];
 let currentColorIndex = -1; // Usado pela Mandala para atualizar cor
 
 // Mapping das plaquinhas para cada cor (4 cores, cada uma com 3 tipos, na ordem: left, right, up)
 const platesMapping = {
-  0: { left: "gltf/imgs/vermelho_left.png", right: "gltf/imgs/vermelho_right.png", up: "gltf/imgs/vermelho_up.png" },
-  1: { left: "gltf/imgs/verde_left.png",    right: "gltf/imgs/verde_right.png",    up: "gltf/imgs/verde_up.png"    },
-  2: { left: "gltf/imgs/azul_left.png",     right: "gltf/imgs/azul_right.png",     up: "gltf/imgs/azul_up.png"     },
-  3: { left: "gltf/imgs/amarelo_left.png",  right: "gltf/imgs/amarelo_right.png",  up: "gltf/imgs/amarelo_up.png"  }
+  0: { left: "player2/gltf/imgs/vermelho_left.png", right: "player2/gltf/imgs/vermelho_right.png", up: "player2/gltf/imgs/vermelho_up.png" },
+  1: { left: "player2/gltf/imgs/verde_left.png",    right: "player2/gltf/imgs/verde_right.png",    up: "player2/gltf/imgs/verde_up.png"    },
+  2: { left: "player2/gltf/imgs/azul_left.png",     right: "player2/gltf/imgs/azul_right.png",     up: "player2/gltf/imgs/azul_up.png"     },
+  3: { left: "player2/gltf/imgs/amarelo_left.png",  right: "player2/gltf/imgs/amarelo_right.png",  up: "player2/gltf/imgs/amarelo_up.png"  }
 };
 
 // Mapping para determinar qual modelo 3D corresponde a cada placa
@@ -42,22 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
     scene.add(light);
     
     // Carrega os modelos 3D
-    const y_left      = await loadGLTF("gltf/amarelo_left.gltf");
-    const b_left      = await loadGLTF("gltf/azul_left.gltf");
-    const g_left      = await loadGLTF("gltf/verde_left.gltf");
-    const r_left      = await loadGLTF("gltf/vermelho_left.gltf");
-    const y_right     = await loadGLTF("gltf/amarelo_right.gltf");
-    const b_right     = await loadGLTF("gltf/azul_right.gltf");
-    const g_right     = await loadGLTF("gltf/verde_right.gltf");
-    const r_right     = await loadGLTF("gltf/vermelho_right.gltf");
-    const y_up        = await loadGLTF("gltf/amarelo_up.gltf");
-    const b_up        = await loadGLTF("gltf/azul_up.gltf");
-    const g_up        = await loadGLTF("gltf/verde_up.gltf");
-    const r_up        = await loadGLTF("gltf/vermelho_up.gltf");
-    const colete2     = await loadGLTF("gltf/colete2.gltf");
-    const recicle     = await loadGLTF("gltf/recicle.gltf");
-    const loop2_molde = await loadGLTF("gltf/loop2_molde.gltf");
-    const loop3_molde = await loadGLTF("gltf/loop3_molde.gltf");
+    const y_left      = await loadGLTF("player2/gltf/amarelo_left.gltf");
+    const b_left      = await loadGLTF("player2/gltf/azul_left.gltf");
+    const g_left      = await loadGLTF("player2/gltf/verde_left.gltf");
+    const r_left      = await loadGLTF("player2/gltf/vermelho_left.gltf");
+    const y_right     = await loadGLTF("player2/gltf/amarelo_right.gltf");
+    const b_right     = await loadGLTF("player2/gltf/azul_right.gltf");
+    const g_right     = await loadGLTF("player2/gltf/verde_right.gltf");
+    const r_right     = await loadGLTF("player2/gltf/vermelho_right.gltf");
+    const y_up        = await loadGLTF("player2/gltf/amarelo_up.gltf");
+    const b_up        = await loadGLTF("player2/gltf/azul_up.gltf");
+    const g_up        = await loadGLTF("player2/gltf/verde_up.gltf");
+    const r_up        = await loadGLTF("player2/gltf/vermelho_up.gltf");
+    const colete2     = await loadGLTF("player2/gltf/colete2.gltf");
+    const recicle     = await loadGLTF("player2/gltf/recicle.gltf");
+    const loop2_molde = await loadGLTF("player2/gltf/loop2_molde.gltf");
+    const loop3_molde = await loadGLTF("player2/gltf/loop3_molde.gltf");
     
     // Ordem dos modelos:
     // 0: y_left, 1: b_left, 2: g_left, 3: r_left,
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // --- ÍCONES PARA INVOCAR OBJETOS 3D (fora da área de plaquinhas) ---
     const recicleIcon = document.createElement("img");
-    recicleIcon.src = "gltf/imgs/recicle.png";
+    recicleIcon.src = "player2/gltf/imgs/recicle.png";
     recicleIcon.alt = "Recicle";
     recicleIcon.style.position = "absolute";
     recicleIcon.style.top = isMobile ? "360px" : "390px";
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(recicleIcon);
     
     const coleteIcon = document.createElement("img");
-    coleteIcon.src = "gltf/imgs/colete2.png";
+    coleteIcon.src = "player2/gltf/imgs/colete2.png";
     coleteIcon.alt = "Colete";
     coleteIcon.style.position = "absolute";
     coleteIcon.style.top = isMobile ? "290px" : "320px";
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(coleteIcon);
     
     const loop2Icon = document.createElement("img");
-    loop2Icon.src = "gltf/imgs/loop-2.png";
+    loop2Icon.src = "player2/gltf/imgs/loop-2.png";
     loop2Icon.alt = "Loop 2";
     loop2Icon.style.position = "absolute";
     loop2Icon.style.top = isMobile ? "460px" : "470px";
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(loop2Icon);
     
     const loop3Icon = document.createElement("img");
-    loop3Icon.src = "gltf/imgs/loop-3.png";
+    loop3Icon.src = "player2/gltf/imgs/loop-3.png";
     loop3Icon.alt = "Loop 3";
     loop3Icon.style.position = "absolute";
     loop3Icon.style.top = isMobile ? "510px" : "520px";
@@ -392,7 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     const btnZoomOriginal = document.createElement("img");
-    btnZoomOriginal.src = "gltf/imgs/home.png";
+    btnZoomOriginal.src = "player2/gltf/imgs/home.png";
     btnZoomOriginal.alt = "Zoom Original";
     btnZoomOriginal.style.cursor = "pointer";
     btnZoomOriginal.style.width = isMobile ? "32px" : "35px";
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", () => {
     uiContainerBottom.appendChild(btnZoomOriginal);
     
     const btnZoomPlus = document.createElement("img");
-    btnZoomPlus.src = "gltf/imgs/plus.jpg";
+    btnZoomPlus.src = "player2/gltf/imgs/plus.jpg";
     btnZoomPlus.alt = "Zoom+";
     btnZoomPlus.style.cursor = "pointer";
     btnZoomPlus.style.width = isMobile ? "32px" : "35px";
@@ -416,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
     uiContainerBottom.appendChild(btnZoomPlus);
     
     const btnZoomMinus = document.createElement("img");
-    btnZoomMinus.src = "gltf/imgs/minus.jpg";
+    btnZoomMinus.src = "player2/gltf/imgs/minus.jpg";
     btnZoomMinus.alt = "Zoom-";
     btnZoomMinus.style.cursor = "pointer";
     btnZoomMinus.style.width = isMobile ? "32px" : "35px";
@@ -429,7 +429,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let objetosVisiveis = true;
     const btnOnOff = document.createElement("img");
-    btnOnOff.src = "gltf/imgs/off.jpg";
+    btnOnOff.src = "player2/gltf/imgs/off.jpg";
     btnOnOff.alt = "ON/OFF";
     btnOnOff.style.cursor = "pointer";
     btnOnOff.style.height = isMobile ? "32px" : "35px";
@@ -443,12 +443,12 @@ document.addEventListener("DOMContentLoaded", () => {
       clonesGroup.children.forEach(clone => {
         clone.visible = objetosVisiveis;
       });
-      btnOnOff.src = objetosVisiveis ? "gltf/imgs/off.jpg" : "gltf/imgs/on.jpg";
+      btnOnOff.src = objetosVisiveis ? "player2/gltf/imgs/off.jpg" : "player2/gltf/imgs/on.jpg";
     });
     uiContainerBottom.appendChild(btnOnOff);
     
     const btnReset = document.createElement("img");
-    btnReset.src = "gltf/imgs/reset.jpg";
+    btnReset.src = "player2/gltf/imgs/reset.jpg";
     btnReset.alt = "Reset";
     btnReset.style.cursor = "pointer";
     btnReset.style.height = isMobile ? "32px" : "35px";
@@ -474,7 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let mandalaTapTimer = null;
     let mandalaRotation = 0;
     const btnMandala = document.createElement("img");
-    btnMandala.src = "gltf/imgs/mandala.jpg";
+    btnMandala.src = "player2/gltf/imgs/mandala.jpg";
     btnMandala.alt = "Mandala";
     btnMandala.style.cursor = "pointer";
     btnMandala.style.height = isMobile ? "40px" : "40px";
@@ -515,7 +515,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // --- BOTÃO SAIR (canto superior esquerdo) ---
     const btnSair = document.createElement("img");
-    btnSair.src = "gltf/imgs/sair.png";
+    btnSair.src = "player2/gltf/imgs/sair.png";
     btnSair.alt = "Sair";
     btnSair.style.cursor = "pointer";
     btnSair.style.height = isMobile ? "40px" : "50px";
