@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
             //imageTargetSrc: "./lata_papel_2.mind"
             //imageTargetSrc: "./yellow_bin.mind"
             //imageTargetSrc: "./yellow_red_green_blue_bins.mind"
-            imageTargetSrc: "./yellow-red-green-blue&lata-garrafa-vidro-papel.mind"            
+            //imageTargetSrc: "./yellow-red-green-blue&lata-garrafa-vidro-papel.mind"            
+            imageTargetSrc: "./yellow-red-green-blue&lata-garrafa-vidro-papel-FINAL.mind" 
 
             //maxTrack: 2           // Melhor valor: 2-3                           
         })
@@ -37,7 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const blue = await loadGLTF("./gltf/blue.gltf")
 
         const lata = await loadGLTF("./gltf/3d_lata_3.gltf")       
-        const garrafa = await loadGLTF("./gltf/3d_garrafa.gltf")
+        const garrafa = await loadGLTF("./gltf/3d_garrafa.gltf")                    // imagem base = 428,8 kB
+        // const garrafa = await loadGLTF("./gltf/3d_garrafa_jpg_version.gltf")     // imagem base = 207,1 kB
         const vidro = await loadGLTF("./gltf/3d_vidro.gltf")
         const papel = await loadGLTF("./gltf/3d_papel_2_special.gltf")        
 
@@ -135,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Botão Sair - posicionado no canto superior esquerdo
         const btnSair = document.createElement("img");
-        btnSair.src = "./gltf/imgs/sair.png";
+        btnSair.src = "gltf/imgs/sair.png";
         btnSair.alt = "Sair";
         btnSair.style.cursor = "pointer";
         btnSair.style.height = isMobile ? "40px" : "60px";
