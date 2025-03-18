@@ -71,12 +71,34 @@ document.addEventListener("DOMContentLoaded", () => {
       colete2, recicle, loop2_molde, loop3_molde
     ];
     
-    const positions = [
-      [0, 0, 0], [0.2, 0.2, 0], [-0.2, -0.2, 0], [0.2, -0.2, 0],
-      [0.1, 0.1, 0], [0.3, 0.3, 0], [-0.3, -0.3, 0], [0.3, -0.3, 0],
-      [0.4, 0.4, 0], [0.6, 0.6, 0], [-0.6, -0.6, 0], [0.6, -0.6, 0],
-      [-0.1, -0.1, 0], [-0.4, -0.4, 0], [-0.5, -0.5, 0], [0.5, -0.5, 0]
-    ];
+    // const positions = [
+    //   [0, 0, 0], [0.2, 0.2, 0], [-0.2, -0.2, 0], [0.2, -0.2, 0],
+    //   [0.1, 0.1, 0], [0.3, 0.3, 0], [-0.3, -0.3, 0], [0.3, -0.3, 0],
+    //   [0.4, 0.4, 0], [0.6, 0.6, 0], [-0.6, -0.6, 0], [0.6, -0.6, 0],
+    //   [-0.1, -0.1, 0], [-0.4, -0.4, 0], [-0.5, -0.5, 0], [0.5, -0.5, 0]
+    // ];
+
+    // ============== ÁREA MODIFICADA ==============
+    // Posições em grid 4x4 centralizado
+    const positions = [];
+    const gridSize = 4;
+    const spacing = 0.3;
+
+    for (let i = 0; i < 16; i++) {
+      const row = Math.floor(i / gridSize);
+      const col = i % gridSize;
+      const x = (col - 1.5) * spacing; // -1.5 para centralizar 4 colunas
+      const y = (1.5 - row) * spacing; // 1.5 para centralizar 4 linhas
+      positions.push([x, y, 0]);
+    }
+
+    // Ajustes cirúrgicos
+    positions[14][0] += 0.15;  // loop2 para direita
+    positions[15][0] = positions[14][0];  // mesma coordenada X
+    positions[15][1] = positions[14][1] - 0.3;  // 0.3 unidades abaixo
+
+
+    // ============== FIM DA MODIFICAÇÃO ==============
     
     // Configura os modelos originais
     models.forEach((model, i) => {
